@@ -58,6 +58,7 @@ use std::fs;
 fn main() {
     let calibration_file = fs::read_to_string("./inputs/01_trebuchet.txt").unwrap();
     let calibration_document = calibration_file.lines();
+    println!("{}", get_calibration_sum_part1(calibration_document.clone()));
     println!("{}", get_calibration_sum_part2(calibration_document));
 }
 
