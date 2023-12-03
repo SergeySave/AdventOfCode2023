@@ -100,12 +100,10 @@ fn get_calibration_sum_part2<'a>(calibration_document: impl Iterator<Item=&'a st
 fn test_part1() {
     assert_eq!(142,
                get_calibration_sum_part1(
-                   vec![
-                       "1abc2",
-                       "pqr3stu8vwx",
-                       "a1b2c3d4e5f",
-                       "treb7uchet",
-                   ].into_iter()
+                   r"1abc2
+                   pqr3stu8vwx
+                   a1b2c3d4e5f
+                   treb7uchet".lines()
                )
     )
 }
@@ -114,15 +112,13 @@ fn test_part1() {
 fn test_part2() {
     assert_eq!(281,
                get_calibration_sum_part2(
-                   vec![
-                       "two1nine",
-                       "eightwothree",
-                       "abcone2threexyz",
-                       "xtwone3four",
-                       "4nineeightseven2",
-                       "zoneight234",
-                       "7pqrstsixteen",
-                   ].into_iter()
+                   r"two1nine
+                   eightwothree
+                   abcone2threexyz
+                   xtwone3four
+                   4nineeightseven2
+                   zoneight234
+                   7pqrstsixteen".lines()
                )
     )
 }
