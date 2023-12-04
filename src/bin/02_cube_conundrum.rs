@@ -1,4 +1,3 @@
-
 /*
 You're launched high into the atmosphere! The apex of your trajectory just
 barely reaches the surface of a large island floating in the sky. You
@@ -118,7 +117,7 @@ fn get_possible_id_sum<'a>(games: impl Iterator<Item=&'a str>) -> usize {
         green: 13,
         blue: 14,
     };
-    games.map(|game | {
+    games.map(|game| {
         let chars = game.chars();
         let mut number_accumulator = String::new();
         let mut game_number = 0;
@@ -156,7 +155,7 @@ fn get_possible_id_sum<'a>(games: impl Iterator<Item=&'a str>) -> usize {
 fn get_total_game_power<'a>(games: impl Iterator<Item=&'a str>) -> usize {
     // This is a simplified version of what we had above since we no longer care
     // about the game count nor do we have a limit.
-    games.map(|game | {
+    games.map(|game| {
         let chars = game.chars();
         let mut number_accumulator = String::new();
         let mut max_cube_count = CubeCount {
@@ -188,7 +187,7 @@ fn test_part1() {
     assert_eq!(
         8,
         get_possible_id_sum(
-r"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+            r"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
 Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
 Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red

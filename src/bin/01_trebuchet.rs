@@ -1,4 +1,3 @@
-
 /*
 --- Day 1: Trebuchet?! ---
 
@@ -66,7 +65,7 @@ fn main() {
 
 fn get_calibration_sum_part1<'a>(calibration_document: impl Iterator<Item=&'a str>) -> usize {
     // Part 1 solution: use a simple is_numeric to find the first numeric character (and similarly for the last character)
-    calibration_document.map(|line|  {
+    calibration_document.map(|line| {
         let first_number = line.chars().find(|x| x.is_numeric())
             .map_or(0, |x| (x as usize) - ('0' as usize));
         let last_number = line.chars().rfind(|x| x.is_numeric())
@@ -81,7 +80,7 @@ const NUMBERS: [&str; 9] = ["one", "two", "three", "four", "five", "six", "seven
 fn get_calibration_sum_part2<'a>(calibration_document: impl Iterator<Item=&'a str>) -> usize {
     // Part 2 solution: use a more complex function to determine what the "numeric value" of a given character is
     // This is run both forwards and backwards on the line to get the first and last number
-    calibration_document.map(|line|  {
+    calibration_document.map(|line| {
         let search_fn = |(i, c): (usize, char)| {
             if c.is_numeric() {
                 Some((c as usize) - ('0' as usize))

@@ -1,4 +1,3 @@
-
 /*
 You and the Elf eventually reach a gondola lift station; he says the
 gondola lift will take you up to the water source, but this is as far as he
@@ -203,7 +202,7 @@ fn test_part1() {
     assert_eq!(
         4361,
         get_part_number_sum(
-r"467..114..
+            r"467..114..
 ...*......
 ..35..633.
 ......#...
@@ -222,7 +221,7 @@ fn test_part2() {
     assert_eq!(
         467835,
         get_gear_ratio_sum(
-r"467..114..
+            r"467..114..
 ...*......
 ..35..633.
 ......#...
