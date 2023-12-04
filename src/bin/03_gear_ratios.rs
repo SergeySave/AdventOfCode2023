@@ -100,7 +100,11 @@ fn main() {
 }
 
 fn preprocess_schematic<'a>(schematic: impl Iterator<Item=&'a str>, width: usize, height: usize) -> (Vec<Vec<usize>>, Vec<(usize, usize)>) {
+    // The total sum of adjacent numbers for each cell
+    // Doing this preprocessing means that we can simply look up the sum for each symbol and add
+    // them all together
     let mut result = vec![vec![0; height]; width];
+    // A list of (x, y) coordinates of all of the symbols
     let mut symbols = vec![];
 
     let mut accumulator = String::new();
@@ -144,7 +148,12 @@ fn get_part_number_sum<'a>(schematic: impl Iterator<Item=&'a str> + Clone) -> us
 }
 
 fn preprocess_gear<'a>(schematic: impl Iterator<Item=&'a str>, width: usize, height: usize) -> (Vec<Vec<(usize, usize)>>, Vec<(usize, usize, char)>) {
+    // The total product of adjacent numbers for each cell as well as the count of numbers
+    // which were multiplied to arrive at that product
+    // Doing this preprocessing means that we can simply look up the sum for each valid gear symbol
+    // and add them all together
     let mut result = vec![vec![(1, 0); height]; width];
+    // A list of (x, y, symbol) coordinate and symbol of all of the symbols
     let mut symbols = vec![];
 
     let mut accumulator = String::new();

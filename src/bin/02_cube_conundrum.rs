@@ -107,6 +107,12 @@ struct CubeCount {
 }
 
 fn get_possible_id_sum<'a>(games: impl Iterator<Item=&'a str>) -> usize {
+    // Noticed that in the format after each number which might be interesting is immediately (excluding whitespace)
+    // followed by a character that tells us how to process it
+    // An additional thing to note is that we only need to know the maximum number of each color and
+    // not how that applies to the individual drawings
+    // This means that for each row we can ignore whitespace, accumulate adjacent digits, and
+    // perform an action when we see another character depending on the character
     const LIMIT: CubeCount = CubeCount {
         red: 12,
         green: 13,
@@ -148,6 +154,8 @@ fn get_possible_id_sum<'a>(games: impl Iterator<Item=&'a str>) -> usize {
 }
 
 fn get_total_game_power<'a>(games: impl Iterator<Item=&'a str>) -> usize {
+    // This is a simplified version of what we had above since we no longer care
+    // about the game count nor do we have a limit.
     games.map(|game | {
         let chars = game.chars();
         let mut number_accumulator = String::new();
