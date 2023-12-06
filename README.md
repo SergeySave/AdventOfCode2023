@@ -5,3 +5,4 @@
 - [Day 3: Gear Ratios](src/bin/03_gear_ratios.rs)
 - [Day 4: Scratchcards](src/bin/04_scratchcards.rs)
 - [Day 5: If You Give A Seed A Fertilizer](src/bin/05_fertilizer.rs)
+- [Day 6: Wait For It](src/bin/06_wait.rs)
