@@ -176,21 +176,21 @@ fn get_margin_product<'a>(mut races: impl Iterator<Item=&'a str>) -> usize {
         // 2 * button_time = total_time
         // button_time = total_time / 2
 
-        // If time is odd the optimal time isn't an integer
-        // However, since this parabola is symmetric, we can round down by one and the value is one of the two max values
-        let optimal_button_time = time / 2;
-        // Find the smallest time which is greater than the distance using a binary search
-        let min_time = binary_search_required_time(time, optimal_button_time, distance + 1); // want to beat distance
-        // Compute the amount of times are at least as much as the time we found
-        // This is taking advantage of the symmetry of the parabola
-        // Get the amount of times between (and including both) optimal and min
-        // Double this amount (the parabola is symmetric)
-        // And if we happened to have an even number (where there is a center to the parabola)
-        // this would have double counted the optimal_button_time - so we need to subtract 1 to fix
-        // the answer
-        let time_amount = (optimal_button_time - min_time + 1) * 2 - if time % 2 == 0 { 1 } else { 0 };
+        // // If time is odd the optimal time isn't an integer
+        // // However, since this parabola is symmetric, we can round down by one and the value is one of the two max values
+        // let optimal_button_time = time / 2;
+        // // Find the smallest time which is greater than the distance using a binary search
+        // let min_time = binary_search_required_time(time, optimal_button_time, distance + 1); // want to beat distance
+        // // Compute the amount of times are at least as much as the time we found
+        // // This is taking advantage of the symmetry of the parabola
+        // // Get the amount of times between (and including both) optimal and min
+        // // Double this amount (the parabola is symmetric)
+        // // And if we happened to have an even number (where there is a center to the parabola)
+        // // this would have double counted the optimal_button_time - so we need to subtract 1 to fix
+        // // the answer
+        // let time_amount = (optimal_button_time - min_time + 1) * 2 - if time % 2 == 0 { 1 } else { 0 };
 
-        time_amount
+        math_time_count(time, distance)
     }).product() // Get the product of all of the values
 }
 
@@ -208,15 +208,53 @@ fn get_combined_race<'a>(mut races: impl Iterator<Item=&'a str>) -> usize {
     // Get the number from the second row
     let distance = get_next_row_as_number(&mut races);
 
-    // Perform the same operation as we did above for the same reasons but this time only using
-    // this single long race
-    // Due to the fact that this is using a binary search this is very efficient this takes almost
-    // no time at all even with very large inputs
-    let optimal_button_time = time / 2;
-    let min_time = binary_search_required_time(time, optimal_button_time, distance + 1); // want to beat distance
-    let time_amount = (optimal_button_time - min_time + 1) * 2 - if time % 2 == 0 { 1 } else { 0 };
+    // // Perform the same operation as we did above for the same reasons but this time only using
+    // // this single long race
+    // // Due to the fact that this is using a binary search this is very efficient this takes almost
+    // // no time at all even with very large inputs
+    // let optimal_button_time = time / 2;
+    // let min_time = binary_search_required_time(time, optimal_button_time, distance + 1); // want to beat distance
+    // let time_amount = (optimal_button_time - min_time + 1) * 2 - if time % 2 == 0 { 1 } else { 0 };
+    //
+    // time_amount
 
-    time_amount
+    math_time_count(time, distance)
+}
+
+/// A mathematical/analytical solution to this (rather than the numerical/iterative approach
+/// originally used to solve this via binary search)
+fn math_time_count(total_time: usize, distance_to_beat: usize) -> usize {
+    // Parabola for the total travel distance based on time the button is held
+    // distance = time * (total_time - time)
+    // distance = time * total_time - time^2
+    // y = time^2 - total_time * time
+
+    // Let's find the intersection with
+    // y = -distance_to_beat
+
+    // distance_to_beat = time^2 - total_time * time
+    // 0 = time^2 - total_time * time + distance_to_beat
+
+    // Applying the quadratic formula
+    // time = (total_time +- sqrt(total_time^2 - 4 * distance_to_beat )) / 2
+
+    // So we have two times where these lines cross:
+    // t1 = (total_time - sqrt(total_time^2 - 4 * distance_to_beat )) / 2
+    // t1 = (total_time / 2) - sqrt(total_time^2 - 4 * distance_to_beat ) / 2
+    // t2 = (total_time + sqrt(total_time^2 - 4 * distance_to_beat )) / 2
+    // t2 = (total_time / 2) + sqrt(total_time^2 - 4 * distance_to_beat ) / 2
+
+    // We care about the number of integers between these two values
+    // number_of_integers = floor(t2) - ceil(t1) + 1
+    let a = (total_time as f64) / 2.0;
+    let b = ((total_time.pow(2) - 4 * distance_to_beat) as f64).sqrt() / 2.0;
+
+    let t1 = a - b;
+    let t2 = a + b;
+
+    let t2_floor = t2.floor();
+
+    (t2_floor as usize) - (t1.floor() as usize) - if t2 == t2_floor { 1 } else { 0 }
 }
 
 #[test]
