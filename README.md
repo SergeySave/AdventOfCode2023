@@ -8,3 +8,4 @@
 - [Day 6: Wait For It](src/bin/06_wait.rs)
 - [Day 7: Camel Cards](src/bin/07_camel.rs)
 - [Day 8: Haunted Wasteland](src/bin/08_haunted.rs)
+- [Day 9: Mirage Maintenance](src/bin/09_mirage.rs)
