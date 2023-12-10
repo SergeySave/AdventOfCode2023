@@ -131,32 +131,32 @@ fn get_next_row_numbers<'a>(races: &mut (impl Iterator<Item=&'a str> + Sized)) -
         .collect::<Vec<usize>>()
 }
 
-fn binary_search_required_time(total_time: usize, optimal_time: usize, distance: usize) -> usize {
-    // Uses a binary search to determine the minimum required amount of time to achieve at least
-    // distance on this race
-
-    // This probably isn't needed but its just a poison pill for if a race can't be won
-    let d = optimal_time * (total_time - optimal_time);
-    if d < distance {
-        return 0;
-    }
-
-    // Simple binary search
-    let mut min_time = 0;
-    let mut max_time = optimal_time;
-
-    while min_time < max_time - 1 {
-        let guess = (min_time + max_time) / 2;
-        let guess_distance = guess * (total_time - guess);
-        if guess_distance < distance {
-            min_time = guess;
-        } else {
-            max_time = guess;
-        }
-    }
-
-    max_time
-}
+// fn binary_search_required_time(total_time: usize, optimal_time: usize, distance: usize) -> usize {
+//     // Uses a binary search to determine the minimum required amount of time to achieve at least
+//     // distance on this race
+//
+//     // This probably isn't needed but its just a poison pill for if a race can't be won
+//     let d = optimal_time * (total_time - optimal_time);
+//     if d < distance {
+//         return 0;
+//     }
+//
+//     // Simple binary search
+//     let mut min_time = 0;
+//     let mut max_time = optimal_time;
+//
+//     while min_time < max_time - 1 {
+//         let guess = (min_time + max_time) / 2;
+//         let guess_distance = guess * (total_time - guess);
+//         if guess_distance < distance {
+//             min_time = guess;
+//         } else {
+//             max_time = guess;
+//         }
+//     }
+//
+//     max_time
+// }
 
 fn get_margin_product<'a>(mut races: impl Iterator<Item=&'a str>) -> usize {
     // Get all of the times
