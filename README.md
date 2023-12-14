@@ -13,3 +13,4 @@
 - [Day 11: Cosmic Expansion](src/bin/11_cosmic.rs)
 - [Day 12: Hot Springs](src/bin/12_springs.rs)
 - [Day 13: Point of Incidence](src/bin/13_incidence.rs)
+- [Day 14: Parabolic Reflector Dish](src/bin/14_parabolic.rs)
