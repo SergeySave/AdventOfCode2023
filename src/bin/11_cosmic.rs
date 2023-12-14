@@ -1,4 +1,3 @@
-
 /*
 You continue following signs for "Hot Springs" and eventually come across
 an observatory. The Elf within turns out to be a researcher studying cosmic
@@ -141,6 +140,7 @@ pair of galaxies. What is the sum of these lengths?
 
 use std::collections::BTreeSet;
 use std::fs;
+
 use itertools::Itertools;
 
 fn main() {
@@ -156,6 +156,7 @@ struct Star {
     row: usize,
     column: usize,
 }
+
 impl Star {
     /// Manhattan Distance
     fn distance_to(&self, other: &Self) -> usize {
@@ -255,7 +256,7 @@ fn test_part1() {
 ..........
 .......#..
 #...#.....".lines(),
-            2
+            2,
         )
     )
 }
@@ -275,7 +276,7 @@ fn test_part2a() {
 ..........
 .......#..
 #...#.....".lines(),
-            10
+            10,
         )
     )
 }
@@ -295,7 +296,7 @@ fn test_part2b() {
 ..........
 .......#..
 #...#.....".lines(),
-            100
+            100,
         )
     )
 }

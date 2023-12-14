@@ -1,4 +1,3 @@
-
 /*
 You finally reach the hot springs! You can see steam rising from secluded
 areas attached to the primary, ornate building.
@@ -163,6 +162,7 @@ counts?
 
 use std::fs;
 use std::str::FromStr;
+
 use itertools::Itertools;
 
 fn main() {
@@ -177,8 +177,9 @@ fn main() {
 enum Spring {
     Operational,
     Damaged,
-    Unknown
+    Unknown,
 }
+
 impl From<char> for Spring {
     fn from(value: char) -> Self {
         match value {
@@ -216,7 +217,7 @@ fn preprocess_record(condition_record: &str) -> Record {
         .collect();
     Record {
         springs,
-        damaged_groups
+        damaged_groups,
     }
 }
 
@@ -230,7 +231,7 @@ fn unfold(record: Record) -> Record {
     }
     Record {
         springs,
-        damaged_groups: record.damaged_groups.repeat(5)
+        damaged_groups: record.damaged_groups.repeat(5),
     }
 }
 

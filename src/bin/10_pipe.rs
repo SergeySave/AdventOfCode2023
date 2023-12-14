@@ -260,8 +260,9 @@ fn main() {
 #[derive(Eq, PartialEq, Copy, Clone, Hash)]
 struct Position {
     row: usize,
-    column: usize
+    column: usize,
 }
+
 impl Position {
     /// Move this position by one unit in a given direction
     fn move_in(&mut self, direction: Direction) {
@@ -279,7 +280,7 @@ enum Direction {
     North,
     South,
     East,
-    West
+    West,
 }
 
 /// Describes the connections offered by a given tile
@@ -290,6 +291,7 @@ struct Connection {
     south: bool,
     west: bool,
 }
+
 impl From<char> for Connection {
     /// Get the connection from a character
     fn from(value: char) -> Self {

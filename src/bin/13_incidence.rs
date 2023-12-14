@@ -1,4 +1,3 @@
-
 /*
 With your help, the hot springs team locates an appropriate spring which
 launches you neatly and precisely up to the edge of Lava Island.
@@ -176,8 +175,9 @@ fn main() {
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
 enum Ground {
     Ash,
-    Rocks
+    Rocks,
 }
+
 impl From<char> for Ground {
     fn from(value: char) -> Self {
         match value {
@@ -191,7 +191,7 @@ impl From<char> for Ground {
 /// A struct to hold a pattern/section in the input
 #[derive(Debug)]
 struct Pattern {
-    pattern: Vec<Vec<Ground>>
+    pattern: Vec<Vec<Ground>>,
 }
 
 /// Represents a line of reflection
@@ -200,6 +200,7 @@ enum Reflection {
     Vertical(usize),
     Horizontal(usize),
 }
+
 impl Reflection {
     /// Get the value for a line of reflection
     fn value(self) -> usize {

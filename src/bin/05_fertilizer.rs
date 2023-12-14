@@ -1,4 +1,3 @@
-
 /*
 You take the boat and find the gardener right where you were told he would
 be: managing a giant "garden" that looks more to you like a farm.
@@ -178,6 +177,7 @@ any of the initial seed numbers?
 use std::cmp::{max, min};
 use std::fs;
 use std::str::FromStr;
+
 use regex::Regex;
 
 fn main() {
@@ -204,8 +204,8 @@ fn get_lowest_location_value<'a>(mut almanac: impl Iterator<Item=&'a str>) -> us
     let mut can_map = vec![false; seeds.len()];
     while let Some(map) = almanac.next() { // We will consume perform all of the mappings (in order)
         let Some(mapping) = map_pattern.captures(map) else {
-            can_map.iter_mut().for_each(|x| *x = true ); // Reset the can map to true when we fail to match
-            continue
+            can_map.iter_mut().for_each(|x| *x = true); // Reset the can map to true when we fail to match
+            continue;
         };
         // Get the values in the mapping from the regex
         let destination_start = usize::from_str(mapping.get(1).unwrap().as_str()).unwrap();
@@ -241,8 +241,8 @@ fn get_lowest_location_value_range<'a>(mut almanac: impl Iterator<Item=&'a str>)
     let mut can_map = vec![false; ranges.len()];
     while let Some(map) = almanac.next() { // We will consume perform all of the mappings (in order)
         let Some(mapping) = map_pattern.captures(map) else {
-            can_map.iter_mut().for_each(|x| *x = true ); // Reset the can map to true when we fail to match
-            continue
+            can_map.iter_mut().for_each(|x| *x = true); // Reset the can map to true when we fail to match
+            continue;
         };
         let destination_start = usize::from_str(mapping.get(1).unwrap().as_str()).unwrap();
         let source_start = usize::from_str(mapping.get(2).unwrap().as_str()).unwrap();

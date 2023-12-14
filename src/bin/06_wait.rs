@@ -165,7 +165,7 @@ fn get_margin_product<'a>(mut races: impl Iterator<Item=&'a str>) -> usize {
     let distances = get_next_row_numbers(&mut races);
 
     // Loop over each time, distance pair
-    times.into_iter().zip(distances).map(|(time, distance)|  {
+    times.into_iter().zip(distances).map(|(time, distance)| {
         // The optimal time is half of the total time
         // Proof:
         // distance = button_time * (total_time - button_time)

@@ -138,6 +138,7 @@ the new total winnings?
 use std::cmp::Ordering;
 use std::fs;
 use std::str::FromStr;
+
 use itertools::Itertools;
 
 fn main() {
@@ -153,6 +154,7 @@ struct Hand {
     bid: usize,
     hand_type: HandType,
 }
+
 impl Hand {
     /// Construct a hand (part 1/normal rules)
     fn normal(hand_input: &str) -> Self {
@@ -164,7 +166,7 @@ impl Hand {
     }
 
     /// Common construct logic
-    fn construct(hand_input: &str, card_builder: impl Fn(char)->Card) -> Self {
+    fn construct(hand_input: &str, card_builder: impl Fn(char) -> Card) -> Self {
         let mut parts = hand_input.split(" ");
         let hand = parts.next().unwrap();
         let hand = hand.chars().map(card_builder).collect();
@@ -187,8 +189,9 @@ enum HandType {
     ThreeOfAKind = 3,
     TwoPair = 2,
     OnePair = 1,
-    HighCard = 0
+    HighCard = 0,
 }
+
 impl HandType {
     /// Determine the type of hand from counts of each type of card
     fn from(cards: &Vec<Card>) -> Self {
@@ -251,6 +254,7 @@ enum Card {
     One = 1,
     Wildcard = 0,
 }
+
 impl Card {
     /// Convert a character to its card type - assuming a normal game (i.e. J is a J)
     fn normal(value: char) -> Self {

@@ -102,6 +102,7 @@ take before you're only on nodes that end with Z?
 use std::collections::HashMap;
 use std::fs;
 use std::mem::swap;
+
 use num::Integer;
 
 fn main() {
@@ -164,7 +165,7 @@ fn get_num_steps<'a>(mut documents: impl Iterator<Item=&'a str>) -> usize {
 
 struct Solution {
     solution: usize,
-    period: usize
+    period: usize,
 }
 
 fn solve_equation(mut a: Solution, mut b: Solution) -> Solution {

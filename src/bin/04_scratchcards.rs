@@ -1,4 +1,3 @@
-
 /*
 The gondola takes you up. Strangely, though, the ground doesn't seem to be
 coming with you; you're not climbing a mountain. As the circle of Snow
@@ -196,7 +195,7 @@ fn get_total_copies<'a>(cards: impl Iterator<Item=&'a str> + Clone) -> usize {
         // Get the number of matches for each card
         let num_matches = determine_card_matches(card);
         // We win the a copy of each of the next num_matches cards for each copy of this card
-        for j in (i+1)..(i+1+num_matches) {
+        for j in (i + 1)..(i + 1 + num_matches) {
             copies[j] += copies[i];
         }
         // And make sure to sum up the total number of copies

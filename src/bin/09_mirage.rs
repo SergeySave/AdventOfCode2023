@@ -141,6 +141,7 @@ for each history. What is the sum of these extrapolated values?
 
 use std::fs;
 use std::str::FromStr;
+
 use itertools::Itertools;
 
 fn main() {
