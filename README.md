@@ -14,3 +14,4 @@
 - [Day 12: Hot Springs](src/bin/12_springs.rs)
 - [Day 13: Point of Incidence](src/bin/13_incidence.rs)
 - [Day 14: Parabolic Reflector Dish](src/bin/14_parabolic.rs)
+- [Day 15: Lens Library](src/bin/15_lens.rs)
