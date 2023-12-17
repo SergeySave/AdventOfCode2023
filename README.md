@@ -16,3 +16,4 @@
 - [Day 14: Parabolic Reflector Dish](src/bin/14_parabolic.rs)
 - [Day 15: Lens Library](src/bin/15_lens.rs)
 - [Day 16: The Floor Will Be Lava](src/bin/16_lava.rs)
+- [Day 17: Clumsy Crucible](src/bin/17_crucible.rs)
