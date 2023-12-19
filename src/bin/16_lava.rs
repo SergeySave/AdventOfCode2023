@@ -1,4 +1,3 @@
-
 /*
 
 With the beam of light completely focused somewhere, the reindeer leads you
@@ -159,6 +158,7 @@ enum MirrorType {
     TopLeftBottomRight,
     TopRightBottomLeft,
 }
+
 impl MirrorType {
     /// Reflect a beam traveling in a certain direction based on this mirror type
     fn reflect(self, direction: Direction) -> Direction {
@@ -191,8 +191,9 @@ enum Axis {
 enum Tile {
     Empty,
     Mirror(MirrorType),
-    Splitter(Axis)
+    Splitter(Axis),
 }
+
 impl From<char> for Tile {
     fn from(value: char) -> Self {
         match value {
@@ -214,6 +215,7 @@ enum Direction {
     Down,
     Left,
 }
+
 impl Direction {
     /// Get the axis which this direction is traveling along
     fn to_axis(self) -> Axis {
@@ -232,6 +234,7 @@ struct Position {
     x: isize,
     y: isize,
 }
+
 impl Position {
     /// Step this position in a given direction
     fn step(self, direction: Direction) -> Self {
@@ -276,6 +279,7 @@ struct Beam {
     position: Position,
     direction: Direction,
 }
+
 impl Beam {
     /// Step this beam forward
     fn step(self) -> Self {

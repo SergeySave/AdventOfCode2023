@@ -1,4 +1,3 @@
-
 /*
 The newly-focused parabolic reflector dish is sending all of the collected
 light to a point on the side of yet another mountain - the largest mountain
@@ -270,7 +269,7 @@ enum Action<'a> {
         into_box: u8,
         label: &'a str,
         focal_length: usize,
-    }
+    },
 }
 
 /// Represents an item stored in a box
@@ -300,7 +299,7 @@ fn get_action(step: &str) -> Action {
             // So we can grab the bytes (which gives us the string as an array of ASCII characters
             // (since we know we have no non-ASCII characters)
             // So we can just grab the last byte and parse out of being a digit
-            focal_length: (step.as_bytes()[step.len() - 1] as usize) - ('0' as usize)
+            focal_length: (step.as_bytes()[step.len() - 1] as usize) - ('0' as usize),
         }
     }
 }

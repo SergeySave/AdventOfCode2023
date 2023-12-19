@@ -1,4 +1,3 @@
-
 /*
 The lava starts flowing rapidly once the Lava Production Facility is
 operational. As you leave, the reindeer offers you a parachute, allowing
@@ -168,6 +167,7 @@ enum Direction {
     Left,
     Right,
 }
+
 impl Direction {
     /// Turn the direction left
     fn turn_left(self) -> Direction {
@@ -197,6 +197,7 @@ struct State {
     direction: Direction,
     direction_count: usize,
 }
+
 impl State {
     /// Step one unit in the currently set direction
     fn step(&self) -> Self {
@@ -246,12 +247,14 @@ struct SearchNode {
     state: State,
     cost: usize,
 }
+
 /// Since we're using a max-heap flip the ordering so that smaller costs sort higher
 impl Ord for SearchNode {
     fn cmp(&self, other: &Self) -> Ordering {
         other.cost.cmp(&self.cost) // Ordering flipped
     }
 }
+
 impl PartialOrd for SearchNode {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
