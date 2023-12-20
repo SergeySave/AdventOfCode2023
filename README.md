@@ -18,3 +18,4 @@
 - [Day 16: The Floor Will Be Lava](src/bin/16_lava.rs)
 - [Day 17: Clumsy Crucible](src/bin/17_crucible.rs)
 - [Day 18: Lavaduct Lagoon](src/bin/18_lavaduct.rs)
+- [Day 19: Aplenty](src/bin/19_aplenty.rs)
