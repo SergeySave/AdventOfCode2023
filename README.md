@@ -20,3 +20,4 @@
 - [Day 18: Lavaduct Lagoon](src/bin/18_lavaduct.rs)
 - [Day 19: Aplenty](src/bin/19_aplenty.rs)
 - [Day 20: Pulse Propagation](src/bin/20_pulse.rs)
+- [Day 21: Step Counter](src/bin/21_step_counter.rs)
