@@ -23,3 +23,4 @@
 - [Day 21: Step Counter](src/bin/21_step_counter.rs)
 - [Day 22: Sand Slabs](src/bin/22_slabs.rs)
 - [Day 23: A Long Walk](src/bin/23_long.rs)
+- [Day 24: Never Tell Me The Odds](src/bin/24_odds.rs)
