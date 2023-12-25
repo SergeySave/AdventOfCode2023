@@ -11,3 +11,4 @@ ndarray = "0.15.6"
 ndarray-linalg = { version = "0.16.0", features = ["openblas-static"] }
 num = "0.4.1"
 regex = { version = "1.10.2", features = [] }
+rand = "0.8.5"
