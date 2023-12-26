@@ -187,6 +187,7 @@ fn main() {
     println!("{}", get_lowest_location_value_range(almanac));
 }
 
+/// Solve part1
 fn get_lowest_location_value<'a>(mut almanac: impl Iterator<Item=&'a str>) -> usize {
     // I am taking advantage of the fact that we can handle each mapping row individually
     // Additionally the types of mappings (i.e. seed-to-soil) do not matter
@@ -225,6 +226,7 @@ fn get_lowest_location_value<'a>(mut almanac: impl Iterator<Item=&'a str>) -> us
     *seeds.iter().min().unwrap()
 }
 
+/// Solve part2
 fn get_lowest_location_value_range<'a>(mut almanac: impl Iterator<Item=&'a str>) -> usize {
     // This is like the above solution but it considers entire ranges of numbers at a time
     // Unfortunately we can't treat each seed individually as that would take far too long and would

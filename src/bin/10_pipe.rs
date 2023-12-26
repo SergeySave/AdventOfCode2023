@@ -556,6 +556,7 @@ fn get_loop_enclosed(map: Vec<Vec<Connection>>, starting_position: Position) -> 
         .unwrap_or(0)
 }
 
+/// Solve part 2
 fn get_enclosed_tiles<'a>(pipe_map: impl Iterator<Item=&'a str>) -> usize {
     let (map, start) = preprocess_map(pipe_map);
     let map = remove_non_loop(map, start);

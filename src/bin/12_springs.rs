@@ -371,6 +371,7 @@ fn get_possible_arrangements(record: Record) -> usize {
 }
 
 
+/// Solve part1
 fn get_total_possible_spring_arrangements<'a>(condition_records: impl Iterator<Item=&'a str>) -> usize {
     condition_records
         .map(preprocess_record)
@@ -378,6 +379,7 @@ fn get_total_possible_spring_arrangements<'a>(condition_records: impl Iterator<I
         .sum()
 }
 
+/// Solve part2
 fn get_total_possible_folded_spring_arrangements<'a>(condition_records: impl Iterator<Item=&'a str>) -> usize {
     condition_records
         .map(preprocess_record)

@@ -105,6 +105,7 @@ struct CubeCount {
     blue: usize,
 }
 
+/// Solve part1
 fn get_possible_id_sum<'a>(games: impl Iterator<Item=&'a str>) -> usize {
     // Noticed that in the format after each number which might be interesting is immediately (excluding whitespace)
     // followed by a character that tells us how to process it
@@ -152,6 +153,7 @@ fn get_possible_id_sum<'a>(games: impl Iterator<Item=&'a str>) -> usize {
     }).sum()
 }
 
+/// Solve part2
 fn get_total_game_power<'a>(games: impl Iterator<Item=&'a str>) -> usize {
     // This is a simplified version of what we had above since we no longer care
     // about the game count nor do we have a limit.

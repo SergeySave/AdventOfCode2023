@@ -98,7 +98,7 @@ You have enough stars to [Push The Big Red Button].
  */
 
 use std::collections::HashMap;
-use std::fmt::{Display, Formatter};
+use std::fmt::Display;
 use std::fs;
 
 use rand::prelude::IteratorRandom;

@@ -138,6 +138,7 @@ fn get_graph<'a>(documents: impl Iterator<Item=&'a str>) -> HashMap<Name, Node> 
     map
 }
 
+/// Solve part1
 fn get_num_steps<'a>(mut documents: impl Iterator<Item=&'a str>) -> usize {
     let instructions = documents.next().unwrap();
     let mut instructions = instructions.chars().cycle();
@@ -204,6 +205,7 @@ fn solve_equation(mut a: Solution, mut b: Solution) -> Solution {
     }
 }
 
+/// Solve part2
 fn get_num_steps_ghost<'a>(mut documents: impl Iterator<Item=&'a str>) -> usize {
     // My original solution to this was significantly more complicated and solved a much harder
     // superset of this problem. However, that was way too slow to get to the necessary answer.
@@ -263,6 +265,7 @@ fn get_num_steps_ghost<'a>(mut documents: impl Iterator<Item=&'a str>) -> usize 
     let solution = solutions.into_iter()
         .reduce(|accumulator, solution| solve_equation(accumulator, solution))
         .unwrap();
+    // solution.solution == solution.period
     solution.solution
 }
 

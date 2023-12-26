@@ -151,6 +151,7 @@ fn main() {
     println!("{}", get_extrapolated_backward_sum(histories));
 }
 
+/// Helper for part 1
 fn extrapolate_history_forward(values: impl Iterator<Item=isize>) -> isize {
     // This is just a really dumb solution - it happened to be good enough
     let values = values.collect::<Vec<isize>>();
@@ -165,6 +166,7 @@ fn extrapolate_history_forward(values: impl Iterator<Item=isize>) -> isize {
     }) + *values.last().unwrap()
 }
 
+/// Solve part1
 fn get_extrapolated_forward_sum<'a>(histories: impl Iterator<Item=&'a str>) -> isize {
     // Extrapolate each history forward and then sum up the values
     histories.map(|history|
@@ -175,6 +177,7 @@ fn get_extrapolated_forward_sum<'a>(histories: impl Iterator<Item=&'a str>) -> i
     ).sum()
 }
 
+/// Helper for part 2
 fn extrapolate_history_backward(values: impl Iterator<Item=isize>) -> isize {
     // Similarly dumb as the forward extrapolation
     let values = values.collect::<Vec<isize>>();
@@ -190,6 +193,7 @@ fn extrapolate_history_backward(values: impl Iterator<Item=isize>) -> isize {
     })
 }
 
+/// Solve part2
 fn get_extrapolated_backward_sum<'a>(histories: impl Iterator<Item=&'a str>) -> isize {
     // Extrapolate each history backward and then sum up the values
     histories.map(|history|

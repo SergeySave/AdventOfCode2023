@@ -174,6 +174,7 @@ fn determine_card_matches(card: &str) -> usize {
     num_matches
 }
 
+/// Solve part1
 fn get_total_point_value<'a>(cards: impl Iterator<Item=&'a str>) -> usize {
     cards.map(|card| {
         // Get the number of matches for each card
@@ -187,6 +188,7 @@ fn get_total_point_value<'a>(cards: impl Iterator<Item=&'a str>) -> usize {
     }).sum() // Finally sum it up
 }
 
+/// Solve part2
 fn get_total_copies<'a>(cards: impl Iterator<Item=&'a str> + Clone) -> usize {
     // Going to store the number of copies we have of each card in this vec
     // We start with only one copy of each card

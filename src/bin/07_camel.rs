@@ -304,13 +304,13 @@ fn determine_total_winnings(mut hands: Vec<Hand>) -> usize {
     }).sum()
 }
 
-/// Get the total winnings of a normal game
+/// Get the total winnings of a normal game (part 1)
 fn get_total_winnings<'a>(hands: impl Iterator<Item=&'a str>) -> usize {
     let hands = hands.map(Hand::normal).collect();
     determine_total_winnings(hands)
 }
 
-/// Get the total winnings of a wildcard game
+/// Get the total winnings of a wildcard game (part 2)
 fn get_total_winnings_wildcard<'a>(hands: impl Iterator<Item=&'a str>) -> usize {
     let hands = hands.map(Hand::wildcard).collect();
     determine_total_winnings(hands)
